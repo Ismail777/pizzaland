@@ -1,0 +1,85 @@
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ *
+ * You can see the styles here:
+ * https://unpkg.com/tailwindcss/dist/base.css
+ */
+@tailwind base;
+
+/**
+ * Remove the default box-shadow for invalid elements to prevent
+ * inputs in Livewire components showing with a
+ * red border by default in Firefox.
+ *
+ * See: https://github.com/laravel-frontend-presets/tall/issues/7
+ */
+ input:invalid, textarea:invalid, select:invalid {
+    box-shadow: none;
+}
+
+/**
+ * This injects any component classes registered by plugins.
+ */
+@tailwind components;
+
+/**
+ * Here you would add any of your custom component classes; stuff that you'd
+ * want loaded *before* the utilities so that the utilities could still
+ * override them.
+ *
+ * Example:
+ *
+ * .btn { ... }
+ * .form-input { ... }
+ */
+
+/**
+ * This injects all of Tailwind's utility classes, generated based on your
+ * config file.
+ */
+
+.nav-link{
+  @apply block text-gray-700 px-4 py-2 mt-2 font-semibold bg-transparent rounded-lg;
+}
+.nav-link:hover {
+  @apply text-gray-900 bg-gray-200;
+}
+.nav-link.focus {
+  @apply text-gray-900 bg-gray-200 outline-none shadow-outline;
+}
+
+.btn {
+  @apply flex justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md  transition duration-150 ease-in-out;
+}
+
+@tailwind utilities;
+
+/**
+ * Here you would add any custom utilities you need that don't come out of the
+ * box with Tailwind.
+ *
+ * Example :
+ *
+ * .bg-pattern-graph-paper { ... }
+ * .skew-45 { ... }
+ */
+
+
+@media (min-width: 640px) {
+  table {
+    display: inline-table !important;
+  }
+
+  thead tr:not(:first-child) {
+    display: none;
+  }
+}
+
+td:not(:last-child) {
+  border-bottom: 0;
+}
+
+th:not(:last-child) {
+  border-bottom: 2px solid rgba(0, 0, 0, .1);
+}

@@ -1,16 +1,5 @@
-<div>
-    <div class="flex mt-4 justify-center">
-        @foreach($categories as $category)
-            @if($category->name == 'uncategorized')
-                @continue
-            @endif
-            <a href="#"
-               class="btn text-gray-800 hover:text-gray-700 focus:bg-orange-500 mx-2 font-semibold border border-gray-300">{{$category->name}}</a>
-        @endforeach
-    </div>
-    <div class="mt-16 flex flex-wrap justify-center">
-        @foreach($items as $item)
-            <div class="flex w-2/5 bg-white items-center mx-3 px-6 mb-4 border border-gray-100 hover:border-orange-500">
+
+                <div class="flex w-2/5 bg-white items-center mx-3 px-6 mb-4 border border-gray-100 hover:border-orange-500">
                 {{--Image to left--}}
                 <a href="{{route('items.show', $item->title)}}">
                     <img src="{{asset('images/'.$item->image)}}"
@@ -38,6 +27,3 @@
                     </div>
                 </div>
             </div>
-        @endforeach
-    </div>
-</div>

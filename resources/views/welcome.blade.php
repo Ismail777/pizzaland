@@ -30,7 +30,15 @@
                 Use our menu to place an order online, or phone our store to
                 place a pickup order. Fast and fresh food.
             </p>
-            <livewire:menu :categories="$categories" :items="$items">
+
+    <div class="mt-16 flex flex-wrap justify-center">
+        @foreach($items as $item)
+         <x-item :item="$item" />
+         @if ($loop->index == 3)  
+            @break
+            @endif       
+        @endforeach
+    </div>
         </div>
     </div>
 

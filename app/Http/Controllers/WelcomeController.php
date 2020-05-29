@@ -11,7 +11,7 @@ class WelcomeController extends Controller
     Public function show()
     {
         $items = Item::all();
-        $categories = Category::all();
-        return view('welcome', compact(['items','categories']));
+        //$categories = Category::all();
+        return view('welcome', compact(['items']));
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Item;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'WelcomeController@show')->name('home');
 Route::get('/items/{item:title}','ItemController@show')->name('items.show');
-Route::resource('cart', 'CartController')->except('show');
+Route::resource('cart', 'CartController')->only(['store','destroy']);
 Route::get('cart', 'CartController@index')->name('cart.index');
+Route::post('cart/update-quantity', 'CartController@updateQuantity')->name('cart.updateQuantity');
+Route::get('shop', function () {
+    $items = Item::all();
+
+    return view('shop', compact('items'));
+});
 
 Route::middleware('guest')->group(function () {
     Route::view('login', 'auth.login')->name('login');

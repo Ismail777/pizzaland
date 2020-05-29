@@ -26,9 +26,22 @@
                                     <span class="text-sm text-gray-400 uppercase">pizza land</span>
                                     <p class="font-semibold text-lg">{{ $item->model->title }}</p>
                                 </div>
-                                <input type="number"
-                                    class="w-12 border border-gray-300 pl-2 rounded-lg bg-gray-100 py-2"
-                                    wire:model="qty">
+                            <form action="{{route('cart.updateQuantity')}}" method="POST">
+                                @csrf
+                            <input type="hidden" name="rowId" value="{{$item->rowId}}">
+                                    <div class="flex items-center w-32" x-data="{ open: false }">
+                                        <input 
+                                        x-on:change="open=true"
+                                        type="number"
+                                        name="quantity"
+                                        class="w-12 border border-gray-300 pl-2 rounded-lg bg-gray-100 py-2 focus:outline-none"
+                                        value="{{$item->qty}}">
+                                        <button 
+                                        x-show.transition.opacity="open"
+                                        type="submit" 
+                                        class="btn bg-red-500 hover:bg-red-400 ml-3">Update</button>
+                                    </div>
+                            </form>
                                 <span class="w-32 font-semibold ml-12">{{ asDollars($item->model->price) }}</span>
                                 <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
                                 {{ csrf_field() }}

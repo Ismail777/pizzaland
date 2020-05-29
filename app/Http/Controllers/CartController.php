@@ -24,9 +24,11 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function updateQuantity(Request $request)
     {
-        //
+        Cart::update($request->rowId, $request->quantity);
+        session()->flash('message','Cart has been updated');
+        return back();
     }
 
     /**

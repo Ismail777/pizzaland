@@ -28,6 +28,7 @@
                     <th class="p-3 text-left">Price</th>
                     <th class="p-3 text-left">SKU</th>
                     <th class="p-3 text-left">Description</th>
+                    <th class="p-3 text-left">Category</th>
                     <th class="p-3 text-left">Created on</th>
                     <th class="p-3 text-left" width="110px">Actions</th>
                 </tr>
@@ -39,10 +40,11 @@
                     <td class="border-grey-light border hover:bg-gray-100 p-3">
                         <img src="{{asset('images/'.$item->image)}}" alt="image" class="h-8 rounded-full">
                     </td>
-                    <td class="border-grey-light border hover:bg-gray-100 p-3">{{$item->title}}</td>
+                    <td class="border-grey-light border hover:bg-gray-100 p-3"><a href="{{route('items.show', $item->title)}}">{{$item->title}}</a></td>
                     <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{$item->asDollars()}}</td>
                     <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{$item->sku}}</td>
                     <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{\Illuminate\Support\Str::limit($item->description, 50)}}</td>
+                    <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{$item->category->name}}</td>
                     <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{ Carbon\Carbon::parse($item->created_at)->format('d, M, Y')}}</td>
                     <form action="{{route('items.destroy', $item->id)}}" method="post">
                         @csrf

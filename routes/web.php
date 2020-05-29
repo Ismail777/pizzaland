@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'WelcomeController@show')->name('home');
+Route::get('/items/{item:title}','ItemController@show')->name('items.show');
+Route::resource('cart', 'CartController')->except('show');
+Route::get('cart', 'CartController@index')->name('cart.index');
 
 Route::middleware('guest')->group(function () {
     Route::view('login', 'auth.login')->name('login');
@@ -22,7 +25,8 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('admin')->group(function (){
     Route::resource('users','UserController');
-    Route::resource('items','ItemController');
+    Route::resource('items','ItemController')->except('show');
+    Route::livewire('categories','categories')->layout('layouts.auth');
 });
 
 Route::view('password/reset', 'auth.passwords.email')->name('password.request');

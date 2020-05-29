@@ -16,9 +16,18 @@ class Item extends Model
         return "/items/{$this->id}";
     }
 
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
+    }
 
     function asDollars() {
         if ($this->price < 0) return "-".asDollars(-$this->price);
         return '$' . number_format($this->price / 100, 2);
     }
+
+        public function presentPrice()
+        {
+        return money_format('$%i', $this->price / 100);
+        }
 }

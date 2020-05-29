@@ -11,9 +11,9 @@
             </div>
             <nav :class="{'block': open, 'hidden': !open}" class="flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">
                 <a class="nav-link" href="#">Dashboard</a>
-                <a class="nav-link" href="#">Items</a>
-                <a class="nav-link" href="#">Users</a>
-                <a class="nav-link" href="#">...</a>
+                <a class="nav-link" href="/items">Items</a>
+                <a class="nav-link" href="/categories">Categories</a>
+                <a class="nav-link" href="/users">Users</a>
                 <div class="pt-6">
                     @guest
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

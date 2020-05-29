@@ -4,22 +4,27 @@
 
         <div class="flex items-center">
             <x-logo />
-            <div class="ml-4">
+            <div class="ml-4 flex items-center">
+                <a href="#"
+                   class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-700 hover:bg-orange-500 hover:text-white">
+                    Home
+                </a>
                 <a href="#"
                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-700 hover:bg-orange-500 hover:text-white">
                     Order Now
                 </a>
-                <a href="#"
+                                <a href="#"
                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-700 hover:bg-orange-500 hover:text-white">
-                    Cart
+                    FAQ
                 </a>
+
                 <a href="#"
-                   class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-700 hover:bg-orange-500 hover:text-white">
-                    Checkout
-                </a>
-                <a href="#"
-                   class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-700 hover:bg-orange-500 hover:text-white">
-                    Contact
+                   class="lg:inline-flex lg:w-auto w-full p-2 relative">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M31.9401 11.2085C31.6809 10.7594 31.3097 10.3852 30.8628 10.1223C30.4159 9.85944 29.9085 9.71687 29.3901 9.70852H10.1901L9.32007 6.31852C9.23217 5.99128 9.03606 5.70344 8.76368 5.50188C8.49131 5.30032 8.15871 5.19692 7.82007 5.20852H4.82007C4.42224 5.20852 4.04071 5.36656 3.75941 5.64786C3.4781 5.92917 3.32007 6.3107 3.32007 6.70852C3.32007 7.10635 3.4781 7.48788 3.75941 7.76918C4.04071 8.05049 4.42224 8.20852 4.82007 8.20852H6.68007L10.8201 23.5985C10.908 23.9258 11.1041 24.2136 11.3765 24.4152C11.6488 24.6167 11.9814 24.7201 12.3201 24.7085H25.8201C26.0971 24.7077 26.3684 24.6302 26.6041 24.4845C26.8397 24.3389 27.0304 24.1309 27.1551 23.8835L32.0751 14.0435C32.2883 13.5965 32.3876 13.1037 32.364 12.609C32.3405 12.1144 32.1948 11.6332 31.9401 11.2085Z" fill="#FC4C4C"/>
+                    <path d="M11.5701 32.2084C12.8127 32.2084 13.8201 31.201 13.8201 29.9584C13.8201 28.7157 12.8127 27.7084 11.5701 27.7084C10.3274 27.7084 9.32007 28.7157 9.32007 29.9584C9.32007 31.201 10.3274 32.2084 11.5701 32.2084Z" fill="#FC4C4C"/>
+                    <path d="M26.5701 32.2084C27.8127 32.2084 28.8201 31.201 28.8201 29.9584C28.8201 28.7157 27.8127 27.7084 26.5701 27.7084C25.3274 27.7084 24.3201 28.7157 24.3201 29.9584C24.3201 31.201 25.3274 32.2084 26.5701 32.2084Z" fill="#FC4C4C"/>
+                    </svg>
                 </a>
             </div>
 

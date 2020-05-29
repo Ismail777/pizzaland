@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -27,7 +28,8 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return view('items.create');
+        $categories = Category::all();
+        return view('items.create', compact('categories'));
     }
 
     /**
@@ -41,10 +43,11 @@ class ItemController extends Controller
     {
         $attributes = $this->validate($request, [
             'title' => 'required | min:4 | max:50',
-            'price' => 'required | max:4',
+            'price' => 'required',
             'sku' => 'min:2 | unique:items',
             'description' => 'required | min:10 | max: 1050',
-            'image' => 'image'
+            'image' => 'image',
+            'category_id' => 'required'
         ]);
 
         if (! $request->has('image'))
@@ -57,7 +60,6 @@ class ItemController extends Controller
             $request->image->move(public_path('images'), $imageName);
             $attributes['image'] = $imageName;
         }
-
 
 
         $item->create($attributes);
@@ -77,7 +79,8 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        //
+        $mightAlsoLike = Item::where('title','!=', $item->title)->inRandomOrder()->take(4)->get();
+        return view('items.show', compact(['item','mightAlsoLike']));
     }
 
     /**
@@ -112,7 +115,15 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-        File::delete('images'.$item->image);
+        if(\File::exists(public_path('images/'.$item->image))){
+
+            \File::delete(public_path('images/'.$item->image));
+
+        }else{
+
+            dd('File does not exists.');
+
+        }
 
         $item->delete();
 

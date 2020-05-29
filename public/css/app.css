@@ -1217,7 +1217,7 @@ input:invalid, textarea:invalid, select:invalid {
   background-color: rgba(229, 231, 235, var(--bg-opacity));
 }
 
-.nav-link.focus {
+.nav-link:focus {
   --text-opacity: 1;
   color: #161e2e;
   color: rgba(22, 30, 46, var(--text-opacity));
@@ -1246,6 +1246,34 @@ input:invalid, textarea:invalid, select:invalid {
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
   transition-duration: 150ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: block;
+  width: 100%;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-width: 1px;
+  --border-opacity: 1;
+  border-color: #d2d6dc;
+  border-color: rgba(210, 214, 220, var(--border-opacity));
+  border-radius: 0.375rem;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input:focus {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(164, 202, 254, 0.45);
+  --border-opacity: 1;
+  border-color: #a4cafe;
+  border-color: rgba(164, 202, 254, var(--border-opacity));
 }
 
 .space-y-0 > :not(template) ~ :not(template) {
@@ -38444,6 +38472,22 @@ td:not(:last-child) {
 
 th:not(:last-child) {
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.svg-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #F35D2C;
+}
+
+.svg-icon circle {
+  stroke: #F35D2C;
+  stroke-width: 1;
 }
 
 @media (min-width: 640px) {

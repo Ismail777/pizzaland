@@ -39,19 +39,28 @@
  * config file.
  */
 
+
 .nav-link{
   @apply block text-gray-700 px-4 py-2 mt-2 font-semibold bg-transparent rounded-lg;
 }
 .nav-link:hover {
   @apply text-gray-900 bg-gray-200;
 }
-.nav-link.focus {
+.nav-link:focus {
   @apply text-gray-900 bg-gray-200 outline-none shadow-outline;
 }
 
 .btn {
   @apply flex justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md  transition duration-150 ease-in-out;
 }
+.input {
+  @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md transition duration-150 ease-in-out;
+  }
+.input:focus {
+  @apply outline-none shadow-outline-blue border-blue-300;
+}
+
+
 
 @tailwind utilities;
 
@@ -82,4 +91,20 @@ td:not(:last-child) {
 
 th:not(:last-child) {
   border-bottom: 2px solid rgba(0, 0, 0, .1);
+}
+
+.svg-icon {
+    width: 1em;
+    height: 1em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+    fill: #F35D2C;
+}
+
+.svg-icon circle {
+    stroke: #F35D2C;
+    stroke-width: 1;
 }

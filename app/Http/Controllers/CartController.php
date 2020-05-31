@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Gloudemans\Shoppingcart\Cart as ShoppingcartCart;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
-use App\Item;
+use NumberFormatter;
+use Symfony\Component\CssSelector\Parser\Handler\NumberHandler;
 
 class CartController extends Controller
 {
@@ -14,9 +16,14 @@ class CartController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {           
+                $discount = session()->get('coupon')['discount'] ?? 0;
+            
                 $items = Cart::content();
-                return view('cart', compact(['items', 'cartTotal']));
+                $subtotal = stringsToInteger(Cart::subtotal());
+                $pSubtotal = asDollars($subtotal);
+                $total = asDollars($subtotal - $discount);
+                return view('cart', compact(['items', 'pSubtotal', 'total']));
     }
 
     /**
@@ -42,9 +49,9 @@ class CartController extends Controller
         Cart::add($request->id, $request->title, $request->quantity, $request->price)
             ->associate('App\Item');
 
-        session()->flash('message','Your item has been added to cart');
+        session()->flash('message','Your item has been added to cart <a href="/cart" class="text-orange-500 hover:text-orange-400 underline">View Cart</a> ');
 
-        return redirect()->route('cart.index');
+        return redirect()->back();
     }
 
     /**

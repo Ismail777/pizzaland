@@ -1,8 +1,8 @@
 <div>
-        <div class="bg-white border px-4 py-4 rounded relative mb-6" role="alert"
+        <div class="bg-white border px-4 py-4 rounded relative mb-6 flex items-center" role="alert"
              x-data="{ isOpen: true }"
              x-show.transition.opacity	="isOpen">
-            <span class="block sm:inline">{{session('message')}}</span>
+            <span class="block sm:inline px-8">{!! session('message') !!}</span>
             <span @click="isOpen = false"
                    class="absolute top-0 bottom-0 right-0 px-4 py-3">
                     <svg class="fill-current h-6 w-6 text-red-500"

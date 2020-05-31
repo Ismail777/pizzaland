@@ -24,6 +24,7 @@
     <body>
     <div>
         @yield('body')
+    <x-footer />
     </div>
         <script src="{{ mix('js/app.js') }}"></script>
         @livewireScripts

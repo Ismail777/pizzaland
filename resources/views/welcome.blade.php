@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'The Best Place for Pizza')
 @section('content')
     <div class="flex flex-col items-center w-full">
         @if (session()->has('message'))

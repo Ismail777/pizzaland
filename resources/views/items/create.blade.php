@@ -58,9 +58,10 @@
                     </label>
                     <div class="relative">
                         <select name="category_id"
-                                class="block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                class="block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 focus:outline-none">
                             @foreach($categories as $category)
-                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                <option class="focus:outline-none" 
+                                value="{{$category->id}}">{{$category->name}}</option>
                             @endforeach
                         </select>
                         @error('category_id')

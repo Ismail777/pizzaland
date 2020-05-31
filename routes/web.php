@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'WelcomeController@show')->name('home');
+Route::resource('/items', 'ItemController')->except('show');
 Route::get('/items/{item:title}','ItemController@show')->name('items.show');
 Route::resource('cart', 'CartController')->only(['store','destroy']);
 Route::get('cart', 'CartController@index')->name('cart.index');
@@ -24,6 +25,8 @@ Route::get('shop', function () {
 
     return view('shop', compact('items'));
 });
+Route::post('/coupon', 'CouponController@store')->name('coupon.store');
+Route::delete('/coupon', 'CouponController@destroy')->name('coupon.destroy');
 
 Route::middleware('guest')->group(function () {
     Route::view('login', 'auth.login')->name('login');

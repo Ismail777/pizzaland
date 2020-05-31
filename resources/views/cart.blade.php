@@ -12,7 +12,7 @@
     </div>
     @if(Cart::count()>0)
         {{-- Begin Content --}}
-        <div class="flex mt-8">
+        <div class="flex sm:flex-col  md:flex-row mt-8">
             {{-- Begin Order Items List --}}
             <div class="flex flex-col">
                 @foreach($items as $item)
@@ -104,8 +104,8 @@
 
 
             {{-- Order Summary Section --}}
-            <div class="ml-8 flex flex-col w-96">
-                <div class="p-8 border border-gray-200 shadow-md bg-white sticky">
+            <div class="ml-8 flex flex-col w-96 sticky top-0">
+                <div class="p-8 border border-gray-200 shadow-md bg-white">
                     <h1 class="text-2xl font-semibold">
                         Order Summary
                     </h1>

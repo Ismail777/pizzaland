@@ -1,7 +1,6 @@
 <div>
     <div class="flex items-center justify-between py-4 px-32">
         {{-- Left Side of NAV --}}
-
         <div class="flex items-center">
             <x-logo />
             <div class="ml-4 flex items-center">
@@ -30,6 +29,8 @@
             </div>
 
         </div>
+        {{-- Mid Nav AKA Search Box --}}
+        @livewire('search-dropdown')
         {{-- Right Side of NAV --}}
         <div class="flex items-center" id="user-details">
             @auth
